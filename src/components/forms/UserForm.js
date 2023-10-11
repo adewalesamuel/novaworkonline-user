@@ -1,151 +1,137 @@
-import { Components } from '..'
+import { Components } from "..";
+import { Services } from "../../services";
 
 export function UserForm(props) {
+    const abortController = new AbortController(); 
+
+    const handleFileUpload = async file => {
+        props.useUser.setIsDisabled(true);
+        
+        try {
+            const formData = new FormData();
+
+            formData.append('img', file);
+            
+            const {img_url} = await Services.FileService.store(
+                formData, abortController.signal);
+
+            props.useUser.setProfil_img_url(img_url);
+        } catch (error) {
+            
+        }finally {props.useUser.setIsDisabled(false)}
+    }
+
     return (
         <form className='form' disabled={props.isDisabled ?? false}
         onSubmit={props.handleFormSubmit ?? null}>
             <div className='row'>
                 <div className='col-12'>
                     <div className='form-group'>
-                        <label htmlFor='firstname'>Firstname</label>
-                        <input className='form-control' type='text' id='firstname' name='firstname' 
-                        placeholder='Firstname' value={props.useUser.firstname ?? ''}
-                        disabled={props.isDisabled} 
-                        onChange={ e => props.useUser.setFirstname(e.target.value) ?? null} required/>
+                        <label htmlFor='profil_img_url'>Photo de profil</label>
+                        <Components.ImageFileInput handleFileChange={handleFileUpload} 
+                        img_url={props.useUser.profil_img_url}/>
                     </div>
                 </div>
-				<div className='col-12'>
+                <div className='col-12 col-sm-6'>
                     <div className='form-group'>
-                        <label htmlFor='lastname'>Lastname</label>
+                        <label htmlFor='lastname'>Nom de famille</label>
                         <input className='form-control' type='text' id='lastname' name='lastname' 
-                        placeholder='Lastname' value={props.useUser.lastname ?? ''}
+                        placeholder='Nom de famille' value={props.useUser.lastname ?? ''}
                         disabled={props.isDisabled} 
                         onChange={ e => props.useUser.setLastname(e.target.value) ?? null} required/>
                     </div>
                 </div>
-				<div className='col-12'>
+                <div className='col-12 col-sm-6'>
                     <div className='form-group'>
-                        <label htmlFor='email'>Email</label>
+                        <label htmlFor='firstname'>Prénom</label>
+                        <input className='form-control' type='text' id='firstname' name='firstname' 
+                        placeholder='Prénom' value={props.useUser.firstname ?? ''}
+                        disabled={props.isDisabled} 
+                        onChange={ e => props.useUser.setFirstname(e.target.value) ?? null} required/>
+                    </div>
+                </div>
+				<div className='col-12 col-sm-6'>
+                    <div className='form-group'>
+                        <label htmlFor='email'>Adresse e-mail</label>
                         <input className='form-control' type='text' id='email' name='email' 
-                        placeholder='Email' value={props.useUser.email ?? ''}
+                        placeholder='Adresse e-mail' value={props.useUser.email ?? ''}
                         disabled={props.isDisabled} 
                         onChange={ e => props.useUser.setEmail(e.target.value) ?? null} required/>
                     </div>
                 </div>
-				<div className='col-12'>
+                <div className='col-12 col-sm-6'>
                     <div className='form-group'>
-                        <label htmlFor='password'>Password</label>
-                        <input className='form-control' type='text' id='password' name='password' 
-                        placeholder='Password' value={props.useUser.password ?? ''}
-                        disabled={props.isDisabled} 
-                        onChange={ e => props.useUser.setPassword(e.target.value) ?? null} required/>
-                    </div>
-                </div>
-				<div className='col-12'>
-                    <div className='form-group'>
-                        <label htmlFor='birth_date'>Birth_date</label>
-                        <input className='form-control' type='date' id='birth_date' name='birth_date' 
-                        placeholder='Birth_date' value={props.useUser.birth_date ?? ''}
-                        disabled={props.isDisabled} 
-                        onChange={ e => props.useUser.setBirth_date(e.target.value) ?? null} required/>
-                    </div>
-                </div>
-				<div className='col-12'>
-                    <div className='form-group'>
-                        <label htmlFor='gender'>Gender</label>
-                        <input className='form-control' type='text' id='gender' name='gender' 
-                        placeholder='Gender' value={props.useUser.gender ?? ''}
-                        disabled={props.isDisabled} 
-                        onChange={ e => props.useUser.setGender(e.target.value) ?? null} required/>
-                    </div>
-                </div>
-				<div className='col-12'>
-                    <div className='form-group'>
-                        <label htmlFor='phone_number'>Phone_number</label>
+                        <label htmlFor='phone_number'>Numéro de téléphone</label>
                         <input className='form-control' type='text' id='phone_number' name='phone_number' 
-                        placeholder='Phone_number' value={props.useUser.phone_number ?? ''}
+                        placeholder='Numéro de téléphone' value={props.useUser.phone_number ?? ''}
                         disabled={props.isDisabled} 
                         onChange={ e => props.useUser.setPhone_number(e.target.value) ?? null} required/>
                     </div>
                 </div>
-				<div className='col-12'>
+				<div className='col-12 col-sm-6'>
                     <div className='form-group'>
-                        <label htmlFor='city'>City</label>
-                        <input className='form-control' type='text' id='city' name='city' 
-                        placeholder='City' value={props.useUser.city ?? ''}
+                        <label htmlFor='birth_date'>Date de naissance</label>
+                        <input className='form-control' type='date' id='birth_date' name='birth_date' 
+                        placeholder='Date de naissance' value={props.useUser.birth_date ?? ''}
                         disabled={props.isDisabled} 
+                        onChange={ e => props.useUser.setBirth_date(e.target.value) ?? null} required/>
+                    </div>
+                </div>
+				<div className='col-12 col-sm-6'>
+                    <div className='form-group'>
+                        <label htmlFor='gender'>Genre</label>
+                        <select className='form-control' type='text' id='gender' name='gender' 
+                        disabled={props.isDisabled} onChange={ e => 
+                        props.useUser.setGender(e.target.value) ?? null} required>
+                            <option value={"Homme"}>Homme</option>
+                            <option value={"Femme"}>Femme</option>
+                            <option value={"Autre"}>Autre</option>
+                        </select>
+                    </div>
+                </div>
+				<div className='col-12 col-sm-6'>
+                    <div className='form-group'>
+                        <label htmlFor='city'>Ville</label>
+                        <input className='form-control' type='text' id='city' name='city' 
+                        placeholder='Ville' value={props.useUser.city ?? ''}disabled={props.isDisabled} 
                         onChange={ e => props.useUser.setCity(e.target.value) ?? null} required/>
                     </div>
                 </div>
-				<div className='col-12'>
+				<div className='col-12 col-sm-6'>
                     <div className='form-group'>
-                        <label htmlFor='profil_img_url'>Profil_img_url</label>
-                        <input className='form-control' type='text' id='profil_img_url' name='profil_img_url' 
-                        placeholder='Profil_img_url' value={props.useUser.profil_img_url ?? ''}
-                        disabled={props.isDisabled} 
-                        onChange={ e => props.useUser.setProfil_img_url(e.target.value) ?? null} required/>
-                    </div>
-                </div>
-				<div className='col-12'>
-                    <div className='form-group'>
-                        <label htmlFor='api_token'>Api_token</label>
-                        <input className='form-control' type='text' id='api_token' name='api_token' 
-                        placeholder='Api_token' value={props.useUser.api_token ?? ''}
-                        disabled={props.isDisabled} 
-                        onChange={ e => props.useUser.setApi_token(e.target.value) ?? null} required/>
-                    </div>
-                </div>
-				<div className='col-12'>
-                    <div className='form-group'>
-                        <label htmlFor='is_active'>Is_active</label>
-                        <input className='form-control' type='radio' id='is_active' name='is_active' 
-                        placeholder='Is_active' value={props.useUser.is_active ?? ''}
-                        disabled={props.isDisabled} 
-                        onChange={ e => props.useUser.setIs_active(e.target.value) ?? null} required/>
-                    </div>
-                </div>
-				<div className='col-12'>
-                    <div className='form-group'>
-                        <label htmlFor='is_qualified'>Is_qualified</label>
-                        <input className='form-control' type='radio' id='is_qualified' name='is_qualified' 
-                        placeholder='Is_qualified' value={props.useUser.is_qualified ?? ''}
-                        disabled={props.isDisabled} 
-                        onChange={ e => props.useUser.setIs_qualified(e.target.value) ?? null} required/>
-                    </div>
-                </div>
-				<div className='col-12'>
-                    <div className='form-group'>
-                        <label htmlFor='country_id'>Country_id</label>
-                        <select className='select2 form-control' id='country_id' name='country_id' value={props.useUser.country_id ?? ''}
-                        disabled={props.isDisabled} 
+                        <label htmlFor='country_id'>Pays</label>
+                        <select className='select2 form-control' id='country_id' name='country_id' 
+                        value={props.useUser.country_id ?? ''} disabled={props.isDisabled} 
                         onChange={ e => props.useUser.setCountry_id(e.target.value) ?? null} required>
-                            {/* {
-                                props.items.map(item => {
-                                    return <option key={Math.random()} value={item.id ?? ''}>{item.name}</option>
+                            {
+                                props.countries.map(country => {
+                                    return (<option key={Math.random()} value={country.id ?? ''}>
+                                        {country.name}</option>)
                                 })
-                            }  */}
+                            } 
                         </select>
                     </div>
                 </div>
 				<div className='col-12'>
                     <div className='form-group'>
-                        <label htmlFor='jobtitle_id'>Jobtitle_id</label>
-                        <select className='select2 form-control' id='jobtitle_id' name='jobtitle_id' value={props.useUser.jobtitle_id ?? ''}
-                        disabled={props.isDisabled} 
+                        <label htmlFor='jobtitle_id'>Domaine</label>
+                        <select className='select2 form-control' id='jobtitle_id' name='jobtitle_id'
+                        value={props.useUser.jobtitle_id ?? ''} disabled={props.isDisabled} 
                         onChange={ e => props.useUser.setJobtitle_id(e.target.value) ?? null} required>
-                            {/* {
-                                props.items.map(item => {
-                                    return <option key={Math.random()} value={item.id ?? ''}>{item.name}</option>
+                            {
+                                props.job_titles.map(job_title => {
+                                    return (<option key={Math.random()} value={job_title.id ?? ''}>
+                                        {job_title.name}</option>)
                                 })
-                            }  */}
+                            } 
                         </select>
                     </div>
                 </div>
 				
                 <div className='col-12 text-right'>
-                    <button disabled={props.isDisabled ?? false} type='button' className='btn btn-primary' 
-                    onClick={props.handleFormSubmit}>
-                        <span>Enregistrer</span>
+                    <button disabled={props.isDisabled ?? false} type='button' 
+                    className='btn btn-primary px-5 rounded' onClick={props.handleFormSubmit}>
+                        <span>{props.isDisabled ? "Chargement..." : "Enregister"}</span>
                     </button>
                 </div>
             </div>

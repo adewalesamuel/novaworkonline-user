@@ -1,38 +1,23 @@
-import { CountryService } from './CountryService';
-import { RoleService } from './RoleService';
-import { JobTitleService } from './JobTitleService';
-import { AdminService } from './AdminService';
-import { UserService } from './UserService';
-import { RecruiterService } from './RecruiterService';
-import { ResumeService } from './ResumeService';
-import { CourseService } from './CourseService';
-import { LessonService } from './LessonService';
-import { UserCourseService } from './UserCourseService';
-import { SubscriptionPackService } from './SubscriptionPackService';
-import { SubscriptionService } from './SubscriptionService';
-import { TestService } from './TestService';
-import { UserTestService } from './UserTestService';
-import { ProjectService } from './ProjectService';
-import { InterviewRequestService } from './InterviewRequestService';
-import { EmployeeService } from './EmployeeService';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
 
-export const Services = {
-    CountryService,
-	RoleService,
-	JobTitleService,
-	AdminService,
-	UserService,
-	RecruiterService,
-	ResumeService,
-	CourseService,
-	LessonService,
-	UserCourseService,
-	SubscriptionPackService,
-	SubscriptionService,
-	TestService,
-	UserTestService,
-	ProjectService,
-	InterviewRequestService,
-	EmployeeService,
-	
-}
+import './assets/lib/font-awesome/css/font-awesome.css';
+import './assets/lib/Ionicons/css/ionicons.css';
+import './assets/css/slim.css';
+
+import './index.css';
+
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+  )
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();

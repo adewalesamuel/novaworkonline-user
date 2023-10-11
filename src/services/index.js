@@ -15,6 +15,8 @@ import { UserTestService } from './UserTestService';
 import { ProjectService } from './ProjectService';
 import { InterviewRequestService } from './InterviewRequestService';
 import { EmployeeService } from './EmployeeService';
+import { AuthService } from './AuthService';
+import { FileService } from './FileService';
 
 export const Services = {
     CountryService,
@@ -34,5 +36,7 @@ export const Services = {
 	ProjectService,
 	InterviewRequestService,
 	EmployeeService,
+	AuthService,
+	FileService,
 	
 }

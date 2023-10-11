@@ -1,7 +1,7 @@
 import { Api } from './Api';
 
 const  ENPOINTS = {
-    Country: 'countrys',
+    Country: 'countries',
 };
 
 const getAll = signal => {

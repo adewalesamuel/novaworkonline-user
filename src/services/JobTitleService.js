@@ -1,7 +1,7 @@
 import { Api } from './Api';
 
 const  ENPOINTS = {
-    JobTitle: 'jobtitles',
+    JobTitle: 'job_titles',
 };
 
 const getAll = signal => {

@@ -7,6 +7,7 @@ export const useUser = () => {
 	const [lastname, setLastname] = useState('');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+	const [password_confirmation, setPassword_confirmation] = useState('');
 	const [birth_date, setBirth_date] = useState('');
 	const [gender, setGender] = useState('');
 	const [phone_number, setPhone_number] = useState('');
@@ -22,11 +23,12 @@ export const useUser = () => {
     const [errors, setErrors] = useState([]);
     const [isDisabled, setIsDisabled] = useState(false);
 
-    const getUser = (userId, signal) => {        
-        return Services.UserService.getById(userId, signal)
+    const getUser = (signal) => {        
+        return Services.UserService.getProfile(signal)
         .then(response => {
             fillUser(response.user);
             setIsDisabled(false);
+			return response;
         });
     }
 
@@ -51,26 +53,22 @@ export const useUser = () => {
 
         return Services.UserService.create(JSON.stringify(payload), signal);
     }
-    const updateUser = (userId, signal) => {
+    const updateUser = (signal) => {
         const payload = {
             firstname,
 		lastname,
 		email,
-		password,
 		birth_date,
 		gender,
 		phone_number,
 		city,
 		profil_img_url,
-		api_token,
-		is_active,
-		is_qualified,
 		country_id,
 		jobtitle_id,
 		
         };
 
-        return Services.UserService.update(userId, JSON.stringify(payload), signal);
+        return Services.UserService.update(JSON.stringify(payload), signal);
     }
     const deleteUser = (userId, signal) => {
         return Services.UserService.destroy(userId, signal);
@@ -118,6 +116,7 @@ export const useUser = () => {
 		lastname,
 		email,
 		password,
+		password_confirmation,
 		birth_date,
 		gender,
 		phone_number,
@@ -135,6 +134,7 @@ export const useUser = () => {
 		setLastname,
 		setEmail,
 		setPassword,
+		setPassword_confirmation,
 		setBirth_date,
 		setGender,
 		setPhone_number,

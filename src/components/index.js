@@ -15,6 +15,25 @@ import { UserTestForm } from './forms/UserTestForm';
 import { ProjectForm } from './forms/ProjectForm';
 import { InterviewRequestForm } from './forms/InterviewRequestForm';
 import { EmployeeForm } from './forms/EmployeeForm';
+import { Header } from './Header';
+import { MainMenu } from './MainMenu';
+import { Footer } from './Footer';
+import { RegisterForm } from './forms/RegisterForm';
+import { ErrorMessages } from './ErrorMessages';
+import { LoginForm } from './forms/LoginForm';
+import { ResumePersonelInfo } from './ResumePersonalInfo';
+import { ResumeProfile } from './ResumeProfile';
+import { ResumeEducation } from './ResumeEducation';
+import { ResumeWorkExperience } from './ResumeWorkExperience';
+import { ResumeSkills } from './ResumeSkills';
+import { ResumeLanguages } from './ResumeLanguages';
+import { ResumeInterests } from './ResumeInterests';
+import { ResumeCourses } from './ResumeCourses';
+import { ResumeExtraActivities } from './ResumeExtraActivities';
+import { ResumeSignature } from './ResumeSignature';
+import { ResumeFooter } from './ResumeFooter';
+import { ImageFileInput } from './ImageFileInput';
+import { Container } from './Container';
 
 export const Components = {
     CountryForm,
@@ -34,5 +53,24 @@ export const Components = {
 	ProjectForm,
 	InterviewRequestForm,
 	EmployeeForm,
-	
+	Header,
+	MainMenu,
+	Footer,
+	RegisterForm,
+	ErrorMessages,
+	LoginForm,
+	ResumePersonelInfo,
+	ResumeProfile,
+	ResumeEducation,
+	ResumeWorkExperience,
+	ResumeSkills,
+	ResumeLanguages,
+	ResumeInterests,
+	ResumeCourses,
+	ResumeExtraActivities,
+	ResumeSignature,
+	ResumeFooter,
+	ImageFileInput,
+	Container
+
 }
