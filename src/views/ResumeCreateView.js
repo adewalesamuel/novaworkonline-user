@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Components } from "../components";
 import { Hooks } from "../hooks";
 import { useNavigate } from "react-router-dom";
+import { Utils } from "../utils";
 
 
 export function ResumeCreateView(props) {
-    const abortController = new AbortController();
+    let abortController = new AbortController();
+
+    const user = Utils.Auth.getUser();
 
     const navigate = useNavigate();
     const useResume = Hooks.useResume();
@@ -18,12 +21,28 @@ export function ResumeCreateView(props) {
 
         try {
            await useResume.createResume(abortController.signal);
-           navigate('/mon-cv')
+           navigate('/mon-cv');
+
         } catch (error) {
             if ('messages' in error)
                 error.messages.then(messages => setErrorMessages(messages));
         }finally {useResume.setIsDisabled(false)}
     }
+
+    const init = useCallback(() => {
+        const personal_infos = {
+            firstname: user.firstname,
+            lastname: user.lastname,
+            email: user.email,
+            phone_number: user.phone_number
+        }
+
+        useResume.setPersonal_infos(personal_infos);
+    }, [])
+
+    useEffect(() => {
+        init()
+    }, [init])
 
     return (
         <>

@@ -20,7 +20,7 @@ export function LoginForm(props) {
             </button>
 
             <p className="mg-t-40 mg-b-0">Vous n'avez pas de compte ?
-                <Link to="/inscription">Inscrivez-vous</Link>
+                <Link to="/inscription"> Inscrivez-vous</Link>
             </p>
             <p className="mg-b-0 text-center pt-3">
                 <Link to="/motdepasse-oublie">Mot de passe oublié ?</Link>

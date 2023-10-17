@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import { Services } from "../services";
 
 export function DashboardView(props) {
-    const abortController = new AbortController();
+    let abortController = new AbortController();
 
     const user = Utils.Auth.getUser() ?? {};
 
@@ -22,7 +22,12 @@ export function DashboardView(props) {
     }, [])
 
     useEffect(() => {
-      init()
+      init();
+
+      return () => {
+            abortController.abort();
+            abortController = new AbortController();
+        }
     }, [init])
 
     return (

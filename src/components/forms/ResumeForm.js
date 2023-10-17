@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Components } from '..'
 
 export function ResumeForm(props) {
-    const abortController = new AbortController();
+    let abortController = new AbortController();
 
     const [sectionName, setSectionName] = useState("personal_infos");
 

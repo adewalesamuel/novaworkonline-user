@@ -46,7 +46,7 @@ export function RegisterForm(props) {
             </button>
 
             <p className="mg-t-40 mg-b-0">Vous avez déjà un compte ? 
-                <Link to="/connexion">Connectez-vous</Link>
+                <Link to="/connexion"> Connectez-vous</Link>
             </p>
         </form>
     )

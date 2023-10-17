@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 
 export function ResumeEditView(props) {
-    const abortController = new AbortController();
+    let abortController = new AbortController();
 
     const navigate = useNavigate();
     const useResume = Hooks.useResume();

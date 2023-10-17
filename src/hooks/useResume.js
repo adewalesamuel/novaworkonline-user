@@ -79,6 +79,7 @@ export const useResume = () => {
     const fillResume = (resume) => {
         let content = {}
         let params = {}
+
         if (resume.content) content = JSON.parse(resume.content)
         // if (resume.params) params = JSON.parse(resume.params)
 

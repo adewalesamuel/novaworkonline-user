@@ -2,7 +2,7 @@ import { Components } from "..";
 import { Services } from "../../services";
 
 export function UserForm(props) {
-    const abortController = new AbortController(); 
+    let abortController = new AbortController(); 
 
     const handleFileUpload = async file => {
         props.useUser.setIsDisabled(true);
@@ -81,11 +81,11 @@ export function UserForm(props) {
                     <div className='form-group'>
                         <label htmlFor='gender'>Genre</label>
                         <select className='form-control' type='text' id='gender' name='gender' 
-                        disabled={props.isDisabled} onChange={ e => 
+                        disabled={props.isDisabled} value={props.useUser.gender} onChange={ e => 
                         props.useUser.setGender(e.target.value) ?? null} required>
-                            <option value={"Homme"}>Homme</option>
-                            <option value={"Femme"}>Femme</option>
-                            <option value={"Autre"}>Autre</option>
+                            <option value={"M"}>Homme</option>
+                            <option value={"F"}>Femme</option>
+                            <option value={"O"}>Autre</option>
                         </select>
                     </div>
                 </div>
@@ -114,9 +114,9 @@ export function UserForm(props) {
                 </div>
 				<div className='col-12'>
                     <div className='form-group'>
-                        <label htmlFor='jobtitle_id'>Domaine</label>
-                        <select className='select2 form-control' id='jobtitle_id' name='jobtitle_id'
-                        value={props.useUser.jobtitle_id ?? ''} disabled={props.isDisabled} 
+                        <label htmlFor='job_title_id'>Domaine</label>
+                        <select className='select2 form-control' id='job_title_id' name='job_title_id'
+                        value={props.useUser.job_title_id ?? ''} disabled={props.isDisabled} 
                         onChange={ e => props.useUser.setJobtitle_id(e.target.value) ?? null} required>
                             {
                                 props.job_titles.map(job_title => {

@@ -2,9 +2,10 @@ import { useCallback, useEffect, useState } from "react";
 import { Components } from "../components";
 import { Hooks } from "../hooks"
 import { Services } from "../services";
+import { Utils } from "../utils";
 
 export function ProfileView(props) {
-    const abortController = new AbortController();
+    let abortController = new AbortController();
 
     const useUser = Hooks.useUser();
 
@@ -17,7 +18,9 @@ export function ProfileView(props) {
         useUser.setIsDisabled(true)
 
         try {
-            await useUser.updateUser(abortController.signal);
+            const { user } = await useUser.updateUser(abortController.signal);
+
+            Utils.Auth.setUser(user);
         } catch (error) {
             console.log(error);
             if ('messages' in error)
@@ -44,7 +47,12 @@ export function ProfileView(props) {
     }, [])
 
     useEffect(() => {
-      init()
+      init();
+
+      return () => {
+            abortController.abort();
+            abortController = new AbortController();
+        }
     }, [init])
 
     return (

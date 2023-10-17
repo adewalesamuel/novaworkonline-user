@@ -2,7 +2,7 @@ import { Components } from ".";
 import { Services } from "../services";
 
 export function ResumeSignature(props) {
-    const abortController = new AbortController(); 
+    let abortController = new AbortController(); 
 
     const handleFileUpload = async file => {
         props.useResume.setIsDisabled(true);
