@@ -34,6 +34,8 @@ import { ResumeSignature } from './ResumeSignature';
 import { ResumeFooter } from './ResumeFooter';
 import { ImageFileInput } from './ImageFileInput';
 import { Container } from './Container';
+import { Loader } from './Loader';
+import { Spinner } from './Spinner';
 
 export const Components = {
     CountryForm,
@@ -71,6 +73,7 @@ export const Components = {
 	ResumeSignature,
 	ResumeFooter,
 	ImageFileInput,
-	Container
-
+	Container,
+	Loader,
+	Spinner
 }
