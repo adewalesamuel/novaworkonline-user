@@ -82,7 +82,7 @@ export function DashboardView(props) {
                                 </Link>
                             </div>
                             <div className="col-sm-6 mg-t-10 mg-sm-t-0">
-                                <Link to="" className="btn btn-success btn-block">Voir les formations</Link>
+                                <Link to="/formations" className="btn btn-success btn-block">Voir les formations</Link>
                             </div>
                         </div>
                     </div>

@@ -105,7 +105,7 @@ export function ResumePersonelInfo(props) {
             <div className='col-12 col-sm-6'>
                 <div className='form-group'>
                     <label htmlFor='birth_date'>Date de naissance</label>
-                    <input className='form-control' type='text' id='birth_date' name='birth_date' 
+                    <input className='form-control' type='date' id='birth_date' name='birth_date' 
                     value={props.useResume.personal_infos.birth_date ?? ''} disabled={props.isDisabled} 
                     onChange={ e => props.useResume.setPersonal_infos(
                         {...props.useResume.personal_infos, birth_date: e.target.value}) ?? null} required/>

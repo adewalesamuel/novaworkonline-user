@@ -36,6 +36,9 @@ import { ImageFileInput } from './ImageFileInput';
 import { Container } from './Container';
 import { Loader } from './Loader';
 import { Spinner } from './Spinner';
+import { SweetAlert } from '../utils/sweet-alert';
+import { PasswordForgetForm } from './forms/PasswordForgetForm';
+import { PasswordNewForm } from './forms/PasswordNewForm';
 
 export const Components = {
     CountryForm,
@@ -75,5 +78,7 @@ export const Components = {
 	ImageFileInput,
 	Container,
 	Loader,
-	Spinner
+	Spinner,
+	PasswordForgetForm,
+	PasswordNewForm
 }

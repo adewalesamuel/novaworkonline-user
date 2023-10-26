@@ -3,7 +3,8 @@ import { Api } from './Api';
 const  ENPOINTS = {
     Login: 'login',
     Logout: 'logout',
-    Register: 'register'
+    Register: 'register',
+    PasswordForget: 'forgot-password'
 };
 
 
@@ -19,9 +20,14 @@ const logout = (payload, signal) => {
     return Api.post(ENPOINTS.Logout, payload, signal)
 }
 
+const forgotPassword = (payload, signal) => {
+    return Api.post(ENPOINTS.PasswordForget, payload, signal)
+}
+
 
 export const AuthService = {
     register,
     login,
-    logout
+    logout,
+    forgotPassword
 }

@@ -15,7 +15,7 @@ export function ProfileView(props) {
 
     const handleProfileSubmit = async e => {
         e.preventDefault();
-        useUser.setIsDisabled(true)
+        useUser.setIsDisabled(true);
 
         try {
             const { user } = await useUser.updateUser(abortController.signal);

@@ -3,7 +3,7 @@ import { Hooks } from '../hooks'
 import { Components } from "../components";
 
 import logo from '../assets/img/logo.png';
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Utils } from "../utils";
 import { useSearchParams } from "react-router-dom";
 import { Services } from "../services";
@@ -14,6 +14,7 @@ export function RegisterView(props){
     const [searchParams, setSearchParams] = useSearchParams();
     const useUser = Hooks.useUser();
 
+    const [job_titles, setJob_titles] = useState([]);
     const [errorMessages, setErrorMessages] = useState([]); 
 
     const handleRegisterSubmit = async (e) => {
@@ -29,6 +30,7 @@ export function RegisterView(props){
                 email: useUser.email,
                 phone_number: useUser.phone_number,
                 password: useUser.password,
+                job_title_id: useUser.job_title_id,
                 password_confirmation: useUser.password_confirmation
             };
 
@@ -47,10 +49,23 @@ export function RegisterView(props){
         } finally {
             useUser.setIsDisabled(false)
         }
-
     }
 
+    const init = useCallback( async () => {
+        useUser.setIsDisabled(true);
 
+        try {
+            const { job_titles } = await Services.JobTitleService.getAll(
+                aborController.signal);
+            setJob_titles(job_titles);
+        } catch (error) {
+            
+        }finally{useUser.setIsDisabled(false)};
+    }, [])
+
+    useEffect(() => {
+        init()
+    }, [init])
     return (
         <Layout.AuthLayout>
             <div className="signin-right">
@@ -63,7 +78,7 @@ export function RegisterView(props){
                         {errorMessages}
                     </Components.ErrorMessages>
                     <Components.RegisterForm useUser={useUser} handleSubmit={handleRegisterSubmit}
-                    isDisabled={useUser.isDisabled}/>
+                    isDisabled={useUser.isDisabled} job_titles={job_titles}/>
                 </div>
 
                 </div>

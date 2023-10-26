@@ -7,8 +7,9 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* <Route path="/connexion" element={<Views.LoginView />} /> */}
         <Route path="/connexion" element={<Views.LoginView />} />
+        <Route path="/nouveau-motdepasse" element={<Views.PasswordNewView />} />
+        <Route path="/motdepasse-oublie" element={<Views.PasswordForgetView />} />
         <Route path="/inscription" element={<Views.RegisterView />} />
         <Route path="*" element={<MainRoutes />} />
       </Routes>

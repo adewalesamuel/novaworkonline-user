@@ -8,6 +8,8 @@ export function MainRoutes(props) {
             <Routes>
                 <Route path="/mon-cv/creer" element={<Views.ResumeCreateView />} />
                 <Route path="/mon-cv/modifier" element={<Views.ResumeEditView />} />
+                <Route path="/abonnements" element={<Views.SubscriptionPackListView />} />
+                <Route path="/formations" element={<Views.JobTitleListView />} />
                 <Route path="/mon-cv" element={<Views.ResumeShowView />} />
                 <Route path="/profil" element={<Views.ProfileView />} />
                 <Route path="/" element={<Views.DashboardView />}/>
