@@ -22,9 +22,9 @@ export function RegisterForm(props) {
                         <select className='form-control' type='text' id='job_title' name='job_title' 
                         disabled={props.isDisabled} value={props.useUser.job_title_id} onChange={ e => 
                         props.useUser.setJobtitle_id(e.target.value) ?? null} required>
-                            <option hidden>Choissez votre domaine</option>
+                            <option hidden>Choisissez votre domaine</option>
                             {props.job_titles.map((job_title, index) => {
-                                return (<option value={job_title.id}>{job_title.name}</option>)
+                                return (<option key={index} value={job_title.id}>{job_title.name}</option>)
                             })}
                         </select>
                     </div>

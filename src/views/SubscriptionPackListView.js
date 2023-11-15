@@ -54,7 +54,7 @@ export function SubscriptionPackListView(props) {
             <div className="slim-pageheader">
                 <ol className="breadcrumb slim-breadcrumb">
                 </ol>
-                <h6 className="slim-pagetitle">Abonnements</h6>
+                <h6 className="slim-pagetitle">Paiement</h6>
             </div> 
             <div className="card card-pricing-one">
                 <Components.Loader isLoading={isLoading}>
@@ -69,7 +69,7 @@ export function SubscriptionPackListView(props) {
                                         <h1 className="pricing-price">{subscription_pack.price} Fcfa</h1>
                                         <button className="btn btn-primary btn-pricing btn-block" 
                                         onClick={e => handleSubscriptionPackClick(e, subscription_pack)}>
-                                            Souscrire
+                                            Faire le paiement
                                         </button>
                                     </div>
                                 </div>

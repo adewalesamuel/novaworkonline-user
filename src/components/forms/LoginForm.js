@@ -16,7 +16,7 @@ export function LoginForm(props) {
 
             <button className="btn btn-primary btn-block btn-signin" disabled={props.isDisabled}
             onSubmit={props.handleSubmit}>
-                {props.isDisabled ? "Chargement..." : "Valider"}
+                {props.isDisabled ? "Chargement..." : "Connexion"}
             </button>
 
             <p className="mg-t-40 mg-b-0">Vous n'avez pas de compte ?

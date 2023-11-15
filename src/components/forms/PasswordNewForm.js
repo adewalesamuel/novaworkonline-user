@@ -16,7 +16,7 @@ export function PasswordNewForm(props) {
             </div>
             <button className="btn btn-primary btn-block btn-signin" 
             disabled={props.isDisabled} onSubmit={props.handleSubmit}>
-                {props.isDisabled ? "Chargement..." : "Chargements"}
+                {props.isDisabled ? "Chargement..." : "Reinitialiser"}
             </button>
 
             <p className="mg-t-40 mg-b-0">Vous n'avez pas de compte ?
