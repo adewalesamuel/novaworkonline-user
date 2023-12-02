@@ -4,7 +4,8 @@ const  ENPOINTS = {
     Login: 'login',
     Logout: 'logout',
     Register: 'register',
-    PasswordForget: 'forgot-password'
+    PasswordForget: 'forgot-password',
+    PasswordReset: 'reset-password'
 };
 
 
@@ -24,10 +25,14 @@ const forgotPassword = (payload, signal) => {
     return Api.post(ENPOINTS.PasswordForget, payload, signal)
 }
 
+const resetPassword = (payload, signal) => {
+    return Api.post(ENPOINTS.PasswordReset, payload, signal)
+}
 
 export const AuthService = {
     register,
     login,
     logout,
-    forgotPassword
+    forgotPassword,
+    resetPassword
 }

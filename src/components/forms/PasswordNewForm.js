@@ -19,8 +19,8 @@ export function PasswordNewForm(props) {
                 {props.isDisabled ? "Chargement..." : "Reinitialiser"}
             </button>
 
-            <p className="mg-t-40 mg-b-0">Vous n'avez pas de compte ?
-                <Link to="/inscription"> Inscrivez-vous</Link>
+            <p className="mg-t-40 mg-b-0">Vous déjà un compte ?
+                <Link to="/connexion"> Connectez-vous</Link>
             </p>
         </form>
     )

@@ -5,9 +5,12 @@ import { Components } from "../components";
 import logo from '../assets/img/logo.png';
 import { useState } from "react";
 import { Services } from "../services";
+import { useSearchParams } from "react-router-dom";
 
 export function PasswordNewView(props){
     const aborController = new AbortController();
+
+    const [searchParms,] = useSearchParams();
 
     const [password, setPassword] = useState('');
     const [password_confirmation, setPassword_confirmation] = useState('');
@@ -18,20 +21,27 @@ export function PasswordNewView(props){
         e.preventDefault();
         setMessages([]);
 
-        if (password !== password_confirmation)
-            setMessages(['Les mots de passe ne correspondent pas!']);
+        // if (password !== password_confirmation)
+        //     setMessages(['Les mots de passe ne correspondent pas!']);
 
         setIsDisabled(true);
         
         try {
-            const payload = {password, password_confirmation};
+            const payload = {
+                password, 
+                password_confirmation,
+                token: searchParms.get('token'),
+                email: searchParms.get('email')
+            };
 
-            const { status } = await Services.AuthService.forgotPassword(
+            const { status } = await Services.AuthService.resetPassword(
                 JSON.stringify(payload), aborController.signal)
 
             setMessages([status]);
-            //redirect
+            setPassword('')
+            setPassword_confirmation('');
         } catch (error) {
+            console.log(error);
             // Utils.Error.handleError(error);
             
             if ('messages' in error)
