@@ -55,25 +55,7 @@ export function PasswordForgetView(props){
 
                 </div>
                 <div className="signin-left d-md-block d-sm-none">
-                    <div className="signin-box">
-                        <h2 className="slim-logo">
-                            <a href="page-inscription.html">
-                                <img src={logo} height="60px" alt='logo'/>
-                            </a>
-                        </h2>
-
-                        <p>
-                            Nova Work Online vous donne l’opportunité de travailler légalement 
-                            et en toute sécurité dans des entreprises canadiennes par le système 
-                            de télétravail sans quitter votre pays. Tout ce dont vous avez besoin, 
-                            c’est de passer le test psychométrique et suivre nos formations aux
-                            normes Québécoises.
-                        </p>
-
-                        <p>Inscrivez-vous pour accéder à votre espace</p>
-
-                        <p className="tx-12">&copy; Copyright 2023. All Rights Reserved.</p>
-                    </div>
+                    <Components.AuthLeftSide />
                 </div>
         </Layout.AuthLayout>
     )
