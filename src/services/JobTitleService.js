@@ -12,6 +12,10 @@ const getById = (id, signal) => {
     return Api.get(`${ENPOINTS.JobTitle}/${id}`, signal);
 }
 
+const getUserJobTitle = signal => {
+    return Api.get(`profile/job-title/`, signal);
+}
+
 const create = (payload, signal) => {
     return Api.post(ENPOINTS.JobTitle, payload, signal)
 }
@@ -26,6 +30,7 @@ const destroy = (id, signal) => {
 export const JobTitleService = {
     getAll,
     getById,
+    getUserJobTitle,
     create,
     update,
     destroy

@@ -1,22 +1,19 @@
-import { Link } from "react-router-dom";
-import { Hooks } from "../hooks";
 import { useCallback, useEffect, useState } from "react";
-import { Utils } from "../utils";
 import { Services } from "../services";
-import { Components } from "../components";
 
 
 export function JobTitleListView(props) {
     let abortController = new AbortController();
 
-    const [job_titles, setJob_titles] = useState([]);
+    const [job_title, setJob_title] = useState({});
     const [isLoading, setIsLoading] = useState(true);
 
     const init = useCallback(async () => {
         try {
-            const { job_titles } = await Services.JobTitleService.getAll(
-                abortController.signal);
-            setJob_titles(job_titles);
+            const {job_title} = await Services.JobTitleService
+            .getUserJobTitle(abortController.signal);
+
+            setJob_title(job_title);
         } catch (error) {
             console.log(error);
         } finally {
@@ -38,22 +35,11 @@ export function JobTitleListView(props) {
             <div className="slim-pageheader">
                 <ol className="breadcrumb slim-breadcrumb">
                 </ol>
-                <h6 className="slim-pagetitle">Formations</h6>
+                <h6 className="slim-pagetitle">Domaine d'activté: {job_title.name}</h6>
             </div>
             <div className="">
                 <div className="card card-pricing-one">
-                    <div className="row justify-content-center">
-                        {job_titles.map((job_title, index) => {
-                            return (
-                                <div className="m-2" key={index}>
-                                    <Link to={`/abonnements`} 
-                                    className="btn btn-oblong btn-primary">
-                                        {job_title.name}
-                                    </Link>
-                                </div>
-                            )
-                        })}
-                    </div>
+                    <p> {job_title.description ?? "Aucune description"}</p>
                 </div>
             </div>
         </>

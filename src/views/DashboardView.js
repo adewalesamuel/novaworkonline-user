@@ -42,9 +42,7 @@ export function DashboardView(props) {
                 <div className="col-lg-6">
                     <h3 className="tx-inverse mg-b-15">Bienvenu, {user.firstname} {user.lastname}!</h3>
                     <p className="mg-b-40">
-                        Phasellus viverra nulla ut metus varius laoreet. 
-                        Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur 
-                        ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus.
+
                     </p>
 
                     <h6 className="slim-card-title mg-b-15">Quelques chiffres</h6>
@@ -78,7 +76,7 @@ export function DashboardView(props) {
                         <div className="row row-sm">
                             <div className="col-sm-6">
                                 <Link to="./page-paiement.html" className="btn btn-primary btn-block">
-                                    Evaluation
+                                    Mon certificat
                                 </Link>
                             </div>
                             <div className="col-sm-6 mg-t-10 mg-sm-t-0">
@@ -90,29 +88,6 @@ export function DashboardView(props) {
             </div>
             <div className="row row-sm mg-t-20">
                 <div className="col-lg-8 col-12">
-                    <div className="card card-table mb-4">
-                        <div className="card-header">
-                            <h6 className="slim-card-title">Formations suivies</h6>
-                        </div>
-                        <div className="table-responsive">
-                            <table className="table mg-b-0 tx-13">
-                                <thead>
-                                    <tr className="tx-10">
-                                    <th className="wd-10p pd-y-5 tx-center"></th>
-                                    <th className="pd-y-5">Titre</th>
-                                    <th className="pd-y-5 tx-right">Prix</th>
-                                    <th className="pd-y-5 tx-center">Type</th>
-                                    <th className="pd-y-5"></th>
-                                    <th className="pd-y-5 tx-right">Date</th>
-                                    <th className="pd-y-5 tx-right">Durée</th>
-                                    <th className="pd-y-5 tx-center"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
                     <iframe width="100%" height="403" src="https://www.youtube.com/embed/na80LQCX1KU" 
                     title="Amazing Animated Logo Intro Video -  Black And White Animation Intro Template" 
                     frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;
