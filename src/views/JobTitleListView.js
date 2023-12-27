@@ -51,12 +51,12 @@ export function JobTitleListView(props) {
                             <h2 className="mb-3">Formations disponibles</h2>
                             <div className="row">
                                 {courses.map((course, index) => {
-                                    const courseUrl =( course.url !== "" && course.url) 
-                                    ? course.url : coursePlaceholder
+                                    const courseImageUrl =( course.img_url !== "" && course.img_url) 
+                                    ? course.img_url : coursePlaceholder
                                     return (
                                         <div className="col-6 col-md-3 mb-5" key={index}>
                                             <div className="w-100">
-                                                <img src={courseUrl} 
+                                                <img src={courseImageUrl} 
                                                 className="img-fluid" alt=""/>
                                             </div>
                                             <div className="p-2">
