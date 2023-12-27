@@ -69,7 +69,7 @@ export function DashboardView(props) {
                 <div className="col-lg-6 mg-t-20 mg-sm-t-30 mg-lg-t-0">
                     <div className="card card-dash-headline">
                         <h4>Trouvez un emploi bien rémunéré au Canada </h4>
-                        <p>
+                        <p className="text-muted">
                             Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, 
                             mollis sed, nonummy id, metus...
                         </p>
