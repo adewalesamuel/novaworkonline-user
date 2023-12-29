@@ -13,7 +13,7 @@ const getById = (id, signal) => {
 }
 
 const getUserJobTitle = signal => {
-    return Api.get(`profile/job-title`, signal);
+    return Api.get(`profile/job-title-user`, signal);
 }
 
 const create = (payload, signal) => {
