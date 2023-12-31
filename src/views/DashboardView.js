@@ -45,25 +45,25 @@ export function DashboardView(props) {
 
                     </p>
 
-                    <h6 className="slim-card-title mg-b-15">Quelques chiffres</h6>
+                    {/* <h6 className="slim-card-title mg-b-15">Quelques chiffres</h6> */}
                     <div className="row no-gutters">
-                        <div className="col-sm-6">
+                        <div className="col-sm-12">
                             <div className="card card-earning-summary">
                                 <h6>Score à l'évaluation</h6>
                                 <h1>{test_score}%</h1>
                             </div>
                         </div>
-                        <div className="col-sm-6">
+                        {/* <div className="col-sm-6">
                             <div className="card card-earning-summary mg-sm-l--1 bd-t-0 bd-sm-t">
                                 <h6>Progression de la formation actuel</h6>        
                                 <div className="progress mg-b-10 mt-1">
-                                    {/* <div className="progress-bar wd-50p" role="progressbar" aria-valuenow="50" 
-                                    aria-valuemin="0" aria-valuemax="100">50%</div> */}
+                                    <div className="progress-bar wd-50p" role="progressbar" aria-valuenow="50" 
+                                    aria-valuemin="0" aria-valuemax="100">50%</div>
                                     <div className="progress-bar" role="progressbar" aria-valuenow="50" 
                                     aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                 <div className="col-lg-6 mg-t-20 mg-sm-t-30 mg-lg-t-0">
@@ -75,9 +75,10 @@ export function DashboardView(props) {
                         </p>
                         <div className="row row-sm">
                             <div className="col-sm-6">
-                                <Link to="./page-paiement.html" className="btn btn-primary btn-block">
+                                <a href={Utils.Auth.getUser()?.certificat_url ?? ""} rel="noreferrer" 
+                                target="_blank" className="btn btn-primary btn-block">
                                     Mon certificat
-                                </Link>
+                                </a>
                             </div>
                             <div className="col-sm-6 mg-t-10 mg-sm-t-0">
                                 <Link to="/formations" className="btn btn-success btn-block">Voir les formations</Link>
