@@ -18,6 +18,7 @@ export const useUser = () => {
 	const [is_qualified, setIs_qualified] = useState('');
 	const [country_id, setCountry_id] = useState('');
 	const [job_title_id, setJobtitle_id] = useState('');
+	const [video_url, setVideo_url] = useState('');
 	
 
     const [errors, setErrors] = useState([]);
@@ -48,6 +49,7 @@ export const useUser = () => {
 		is_qualified,
 		country_id,
 		job_title_id,
+		video_url
 		
         };
 
@@ -65,6 +67,7 @@ export const useUser = () => {
 		profil_img_url,
 		country_id,
 		job_title_id,
+		video_url,
 		
         };
 
@@ -89,6 +92,7 @@ export const useUser = () => {
 		setIs_qualified(user.is_qualified ?? '');
 		setCountry_id(user.country_id ?? '');
 		setJobtitle_id(user.job_title_id ?? '');
+		setVideo_url(user.video_url ?? '');
 		
     }
     const emptyUser = () => {
@@ -107,6 +111,7 @@ export const useUser = () => {
 		setIs_qualified('');
 		setCountry_id('');
 		setJobtitle_id('');
+		setVideo_url('');
 		
     }
 
@@ -127,7 +132,7 @@ export const useUser = () => {
 		is_qualified,
 		country_id,
 		job_title_id,
-		
+		video_url,
         errors,
         isDisabled,
         setFirstname,
@@ -145,6 +150,7 @@ export const useUser = () => {
 		setIs_qualified,
 		setCountry_id,
 		setJobtitle_id,
+		setVideo_url,
 		
         setId,
         setErrors,

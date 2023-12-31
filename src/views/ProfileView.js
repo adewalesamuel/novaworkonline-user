@@ -62,13 +62,11 @@ export function ProfileView(props) {
                 </ol>
                 <h6 className="slim-pagetitle">Modifer mon profil</h6>
             </div>
-            <Components.Container>
-                <Components.ErrorMessages>
-                    {errorMessages}
-                </Components.ErrorMessages>
-                <Components.UserForm useUser={useUser} isDisabled={useUser.isDisabled}
-                handleFormSubmit={handleProfileSubmit} job_titles={job_titles} countries={countries}/>
-            </Components.Container>
+            <Components.ErrorMessages>
+                {errorMessages}
+            </Components.ErrorMessages>
+            <Components.UserForm useUser={useUser} isDisabled={useUser.isDisabled}
+            handleFormSubmit={handleProfileSubmit} job_titles={job_titles} countries={countries}/>
         </>
     )
 }
