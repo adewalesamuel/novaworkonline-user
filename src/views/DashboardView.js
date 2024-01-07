@@ -59,7 +59,7 @@ export function DashboardView(props) {
                                 <div className="progress mg-b-10 mt-1">
                                     <div className="progress-bar wd-50p" role="progressbar" aria-valuenow="50" 
                                     aria-valuemin="0" aria-valuemax="100">50%</div>
-                                    <div className="progress-bar" role="progressbar" aria-valuenow="50" 
+ame="progress-bar" role="progressbar" aria-valuenow="50" 
                                     aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
@@ -68,11 +68,11 @@ export function DashboardView(props) {
                 </div>
                 <div className="col-lg-6 mg-t-20 mg-sm-t-30 mg-lg-t-0">
                     <div className="card card-dash-headline">
-                        <h4>Trouvez un emploi bien rémunéré au Canada </h4>
-                        <p className="text-muted">
+                        <h4>MA FORMATION</h4>
+                        {/* <p className="text-muted">
                             Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, 
                             mollis sed, nonummy id, metus...
-                        </p>
+                        </p> */}
                         <div className="row row-sm">
                             <div className="col-sm-6">
                                 <a href={Utils.Auth.getUser()?.certificat_url ?? ""} rel="noreferrer" 
@@ -81,7 +81,7 @@ export function DashboardView(props) {
                                 </a>
                             </div>
                             <div className="col-sm-6 mg-t-10 mg-sm-t-0">
-                                <Link to="/formations" className="btn btn-success btn-block">Voir les formations</Link>
+                                <Link to="/formations" className="btn btn-success btn-block">Accéder à ma formation</Link>
                             </div>
                         </div>
                     </div>
