@@ -14,7 +14,7 @@ export function MainMenu(props){
                 <li className="nav-item">
                     <NavLink className="nav-link" to="/formations">
                     <i className="icon ion-ios-book-outline"></i>
-                    <span>Formations</span>
+                    <span>Formation</span>
                     </NavLink>
                 </li>
                <li className="nav-item">

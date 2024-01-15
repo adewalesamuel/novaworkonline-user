@@ -7,6 +7,9 @@ import { Services } from '../services';
 export function Header(props) {
     const user = Utils.Auth.getUser() ?? {};
 
+    const profilImg = (!user.profil_img_url || user.profil_img_url === "") ? 
+    "http://via.placeholder.com/500x500" : user.profil_img_url;
+
     const navigate = useNavigate();
 
     const handleLogoutClick = e => {
@@ -27,8 +30,7 @@ export function Header(props) {
                     <div className="dropdown dropdown-c">
                         <span className="logged-user" onClick={e => 
                             Dom.toggleElement('#dropdownMenu')} role='button'>
-                            <img src={user.profil_img_url ?? "http://via.placeholder.com/500x500"} 
-                            alt='' style={{objectFit: 'cover'}}/>
+                            <img src={profilImg} alt='' style={{objectFit: 'cover'}}/>
                             <span>{user.firstname} {user.lastname}</span>
                             <i className="fa fa-angle-down"></i>
                         </span>
@@ -37,9 +39,9 @@ export function Header(props) {
                                 <Link to="/profil" className="nav-link">
                                     <i className="icon ion-person"></i> Mon profil
                                 </Link>
-                                <Link to="/notifications" className="nav-link">
+                                {/* <Link to="/notifications" className="nav-link">
                                     <i className="icon ion-ios-bell"></i> Notifications
-                                </Link>
+                                </Link> */}
                                 <span className="nav-link text-danger" onClick={handleLogoutClick} role='button'>
                                     <i className="icon ion-forward text-danger"></i> Se deconnecter
                                 </span>

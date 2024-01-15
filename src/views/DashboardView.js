@@ -68,10 +68,10 @@ export function DashboardView(props) {
                 </div>
                 <div className="col-lg-6 mg-t-20 mg-sm-t-30 mg-lg-t-0">
                     <div className="card card-dash-headline">
-                        <h4>Trouvez un emploi bien rémunéré au Canada </h4>
+                        <h4 className="text-uppercase">Ma formation </h4>
                         <p className="text-muted">
-                            Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, 
-                            mollis sed, nonummy id, metus...
+                            {/* Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, 
+                            mollis sed, nonummy id, metus... */}
                         </p>
                         <div className="row row-sm">
                             <div className="col-sm-6">
@@ -81,7 +81,7 @@ export function DashboardView(props) {
                                 </a>
                             </div>
                             <div className="col-sm-6 mg-t-10 mg-sm-t-0">
-                                <Link to="/formations" className="btn btn-success btn-block">Voir les formations</Link>
+                                <Link to="/formations" className="btn btn-success btn-block">Accéder à ma formation</Link>
                             </div>
                         </div>
                     </div>
