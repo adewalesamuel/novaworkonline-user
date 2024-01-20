@@ -10,7 +10,7 @@ import { Services } from "../services";
 export function LoginView(props){
     const aborController = new AbortController();
 
-    const [searchParams, setSearchParams] = useSearchParams();
+    const [searchParams, ] = useSearchParams();
     const useUser = Hooks.useUser();
 
     const [errorMessages, setErrorMessages] = useState([]); 

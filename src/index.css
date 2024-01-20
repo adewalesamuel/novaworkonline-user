@@ -48,7 +48,3 @@ code {
 .rounded-pill {
   border-radius: 100px;
 }
-
-button, input {
-  border-radius: 100px !important;
-}

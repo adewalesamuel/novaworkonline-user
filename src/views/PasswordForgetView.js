@@ -44,7 +44,7 @@ export function PasswordForgetView(props){
                 <div className="signin-box">
                     <h2 className="signin-title-primary">Mot de passe oublié !</h2>
                     <h3 className="signin-title-secondary">
-                        Entrez votre addrese mail pour reinitialiser votre mot de passe
+                        Entrez votre adrese mail pour reinitialiser votre mot de passe
                     </h3>
                     <Components.ErrorMessages>
                         {messages}

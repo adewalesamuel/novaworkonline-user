@@ -15,7 +15,19 @@ export function RegisterView(props){
     const useUser = Hooks.useUser();
 
     const [job_titles, setJob_titles] = useState([]);
-    const [errorMessages, setErrorMessages] = useState([]); 
+    const [errorMessages, setErrorMessages] = useState([]);
+    
+    const validateFormFields = (validatorList) => {
+        const errorList = [];
+
+        validatorList.forEach(validatorItem => {
+            const {pattern, value, message} = validatorItem;
+
+            if (!pattern.test(value)) errorList.push(message);
+        })
+
+        return errorList;
+    }
 
     const handleRegisterSubmit = async (e) => {
         e.preventDefault();
@@ -24,6 +36,51 @@ export function RegisterView(props){
         useUser.setIsDisabled(true);
         
         try {
+
+            const errorList =  validateFormFields([
+                {
+                    value: useUser.firstname,
+                    pattern: new RegExp('[A-Za-z]', 'g'),
+                    message: 'Le prenom ne doit pas contenir de chiffres'
+                },
+                {
+                    value: useUser.lastname,
+                    pattern: new RegExp('[A-Za-z]', 'g'),
+                    message: 'Le nom ne doit pas contenir de chiffres'
+                },
+                {
+                    value: useUser.phone_number,
+                    pattern: new RegExp('[0-9]', 'gi'),
+                    message: 'Le numéro de téléphone doit contenir 10 chiffres'
+                },
+                {
+                    value: useUser.password,
+                    pattern: new RegExp('[A-Z]', 'g'),
+                    message: 'le mot de passe doit contenir au moins une lettre majuscule'
+                },
+                {
+                    value: useUser.password,
+                    pattern: new RegExp('[a-z]', 'g'),
+                    message: 'le mot de passe doit contenir au moins une lettre minuscule'
+                },
+                {
+                    value: useUser.password,
+                    pattern: new RegExp('[@$!%*#?&]', 'gi'),
+                    message: 'le mot de passe doit contenir au moins un caractère spécial'
+                }
+
+            ]);
+
+            if (errorList.length > 0) {
+                const error = new Error('Une erreur est survenue');
+                error.errorList = errorList
+
+                throw error;
+            }
+
+            if (useUser.password !== useUser.password_confirmation)
+                return setErrorMessages(['Vos mots de passes ne correspondent pas!']);
+
             const payload = {
                 firstname: useUser.firstname,
                 lastname: useUser.lastname,
@@ -42,10 +99,13 @@ export function RegisterView(props){
 
             window.location.replace(`${searchParams.get('from') ?? "/"}`);
         } catch (error) {
-            // Utils.Error.handleError(error);
+            if ('errorList' in error)
+                setErrorMessages(error.errorList)
             
             if ('messages' in error)
-                error.messages.then(messages => setErrorMessages(messages));
+                error.messages.then(messages => {
+                    setErrorMessages(messages);
+                });
         } finally {
             useUser.setIsDisabled(false)
         }

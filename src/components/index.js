@@ -40,6 +40,7 @@ import { SweetAlert } from '../utils/sweet-alert';
 import { PasswordForgetForm } from './forms/PasswordForgetForm';
 import { PasswordNewForm } from './forms/PasswordNewForm';
 import { AuthLeftSide } from './AuthLeftSide';
+import { CustomPasswordInput } from './CustomPasswordInput';
 
 export const Components = {
     CountryForm,
@@ -82,5 +83,6 @@ export const Components = {
 	Spinner,
 	PasswordForgetForm,
 	PasswordNewForm,
-	AuthLeftSide
+	AuthLeftSide,
+	CustomPasswordInput
 }

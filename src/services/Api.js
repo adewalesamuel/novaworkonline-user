@@ -149,8 +149,13 @@ const getResponseErrors = response => {
             
             errorMessages.push(result.message);
     
-            for (let error in result.errors) 
+            for (let error in result.errors) {
+                const message = result.errors[error];
+
+                if (message.includes('data')) return;
+                
                 errorMessages.push(result.errors[error]);
+            }
 
             resolve(errorMessages);
         });    
