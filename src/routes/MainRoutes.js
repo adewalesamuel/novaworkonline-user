@@ -4,7 +4,7 @@ import { Views } from "../views";
 
 export function MainRoutes(props) {
     return (
-        <Layout.MainLayout>
+        <Layout.MainLayoutV2>
             <Routes>
                 <Route path="/mon-cv/creer" element={<Views.ResumeCreateView />} />
                 <Route path="/mon-cv/modifier" element={<Views.ResumeEditView />} />
@@ -15,6 +15,6 @@ export function MainRoutes(props) {
                 <Route path="/" element={<Views.DashboardView />}/>
             </Routes>
 
-        </Layout.MainLayout>
+        </Layout.MainLayoutV2>
     )
 }

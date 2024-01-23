@@ -23,7 +23,7 @@ export function Header(props) {
             <div className="container">
                 <div className="slim-header-left">
                     <h2 className="slim-logo">
-                        <a href="index.html"><img src={logo} height="40px" alt=""/></a>
+                        <Link to="/"><img src={logo} height="40px" alt=""/></Link>
                     </h2>
                 </div>
                 <div className="slim-header-right">

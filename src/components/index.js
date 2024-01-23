@@ -41,6 +41,7 @@ import { PasswordForgetForm } from './forms/PasswordForgetForm';
 import { PasswordNewForm } from './forms/PasswordNewForm';
 import { AuthLeftSide } from './AuthLeftSide';
 import { CustomPasswordInput } from './CustomPasswordInput';
+import { MainmenuV2 } from './MainMenuV2';
 
 export const Components = {
     CountryForm,
@@ -84,5 +85,6 @@ export const Components = {
 	PasswordForgetForm,
 	PasswordNewForm,
 	AuthLeftSide,
-	CustomPasswordInput
+	CustomPasswordInput,
+	MainmenuV2
 }
