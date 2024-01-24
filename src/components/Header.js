@@ -1,5 +1,4 @@
 import { Link, useNavigate } from 'react-router-dom';
-import logo from '../assets/img/logo.png';
 import { Utils } from '../utils';
 import { Dom } from '../utils/Dom';
 import { Services } from '../services';
@@ -20,11 +19,10 @@ export function Header(props) {
     }
     return (
         <div className="slim-header">
-            <div className="container">
+            <div className="container px-5">
                 <div className="slim-header-left">
-                    <h2 className="slim-logo">
-                        <Link to="/"><img src={logo} height="40px" alt=""/></Link>
-                    </h2>
+                    <i className='fa fa-search mr-3' ></i>
+                    Recherche
                 </div>
                 <div className="slim-header-right">
                     <div className="dropdown dropdown-c">

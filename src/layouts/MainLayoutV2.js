@@ -14,10 +14,10 @@ export function MainLayoutV2(props){
 
     return (
         <>
-            <Components.Header />
             <div className="slim-body">
                 <Components.MainmenuV2 />
                 <div className="slim-mainpanel">
+                <Components.Header />
                     <div className="container">
                         {props.children}
                     </div>

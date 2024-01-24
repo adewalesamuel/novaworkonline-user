@@ -21,12 +21,12 @@ export function LoginForm(props) {
                 {props.isDisabled ? "Chargement..." : "Connexion"}
             </button>
 
-            <p className="mg-t-40 mg-b-0">Vous n'avez pas de compte ?
-                <Link to="/inscription"> Inscrivez-vous</Link>
-            </p>
-            <p className="mg-b-0 text-center pt-3">
-                <Link to="/motdepasse-oublie">Mot de passe oublié ?</Link>
-            </p>
+            <div className="text-center">
+                <Link to="/motdepasse-oublie" className="mr-3">Mot de passe oublié ?</Link>
+                <Link to="/inscription"> 
+                    <strong>Créer un compte</strong>
+                </Link>
+            </div>
         </form>
     )
 }
