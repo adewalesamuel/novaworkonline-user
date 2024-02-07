@@ -20,6 +20,10 @@ code {
     monospace;
 }
 
+.sidebar-nav-item:first-child .sidebar-nav-link {
+  border-top: none;
+}
+
 .wizard > .content > .body input {
   display: inline-block;
 }
@@ -65,5 +69,13 @@ code {
 }
 
 .rounded-pill {
-  border-radius: 100px;
+  border-radius: 500px;
+}
+
+.text-primary {
+  color: #2f1b66 !important;
+}
+
+.bg-blue {
+  background-color: #2f1b66 !important;
 }
