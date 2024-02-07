@@ -146,16 +146,13 @@ const getResponseErrors = response => {
         
         response.json().then(result => {
             let errorMessages = [];
-            
-            errorMessages.push(result.message);
-    
-            for (let error in result.errors) {
-                const message = result.errors[error];
 
-                if (message.includes('data')) return;
-                
+            if ('message' in result && 
+            result.message !== "The given data was invalid.")
+                errorMessages.push(result.message);
+    
+            for (let error in result.errors) 
                 errorMessages.push(result.errors[error]);
-            }
 
             resolve(errorMessages);
         });    
