@@ -60,7 +60,7 @@ export function ProfileView(props) {
             <div className="slim-pageheader">
                 <ol className="breadcrumb slim-breadcrumb">
                 </ol>
-                <h6 className="slim-pagetitle">Modifer mon profil</h6>
+                <h6 className="slim-pagetitle">Modifier mon profil</h6>
             </div>
             <Components.ErrorMessages>
                 {errorMessages}

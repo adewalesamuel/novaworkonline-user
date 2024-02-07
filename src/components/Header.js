@@ -21,8 +21,8 @@ export function Header(props) {
         <div className="slim-header">
             <div className="container px-5">
                 <div className="slim-header-left">
-                    <i className='fa fa-search mr-3' ></i>
-                    Recherche
+                    {/* <i className='fa fa-search mr-3' ></i>
+                    Recherche */}
                 </div>
                 <div className="slim-header-right">
                     <div className="dropdown dropdown-c">

@@ -45,8 +45,7 @@ export function DashboardView(props) {
                 <div className="card card-dash-headline text-left">
                     <h4 className="">Trouvez un emploi bien rémunéré au Canada</h4>
                     <p>
-                        Fusce vulputate eleifend sapien. Vestibulum purus quam, 
-                        scelerisque ut, mollis sed, nonummy id, metus...
+                    Bienvenue sur votre tableau de bord. Accédez à vos formations dès maintenant pour obtenir rapidement votre certificat et être répertorié parmi les candidats qualifiés, cela vous permettra d'être visible par les recruteurs.
                     </p>
                     <div className="row row-sm">
                         <div className="col-sm-6">

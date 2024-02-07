@@ -38,7 +38,7 @@ export function JobTitleListView(props) {
             <div className="slim-pageheader">
                 <ol className="breadcrumb slim-breadcrumb">
                 </ol>
-                <h6 className="slim-pagetitle">Domaine d'activté: {job_title.name}</h6>
+                <h6 className="slim-pagetitle">Domaine d'activité: {job_title.name}</h6>
             </div>
             <div className="">
                 <div className="card card-pricing-one">
