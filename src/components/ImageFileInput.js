@@ -4,9 +4,9 @@ export function ImageFileInput(props) {
 
     return (
         <span>
-            <div className="mg-t-20 mg-sm-t-0 position-relative">
+            <div className="mg-t-20 mg-sm-t-0">
                 <input type='file' onChange={e => 
-                props.handleFileChange(e.target.files[0])} accept='image/*' 
+                props.handleFileChange(e, e.target.files[0])} accept='image/*' 
                 style={{
                     position: "absolute", 
                     top: 0, 

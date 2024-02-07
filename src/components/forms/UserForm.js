@@ -57,7 +57,7 @@ export function UserForm(props) {
                     <div className='row'>
                         <div className='col-12'>
                             <div className='form-group rounded-pill d-flex mx-auto 
-                            justify-content-center align-items-center' style={{
+                            justify-content-center align-items-center position-relative' style={{
                                     border: "3px solid #2f1b66",
                                     overflow: 'hidden',
                                     width: "15rem",
@@ -199,7 +199,7 @@ export function UserForm(props) {
                         <div className='col-12 text-center mt-3'>
                             <button disabled={props.isDisabled ?? false} type='button' 
                             className='btn btn-primary px-5 rounded-pill' onClick={props.handleFormSubmit}>
-                                <span>{props.isDisabled ? "Chargement..." : "Enregister"}</span>
+                                <span>{props.isDisabled ? "Chargement..." : "Enregistrer"}</span>
                             </button>
                         </div>
                     </div>
