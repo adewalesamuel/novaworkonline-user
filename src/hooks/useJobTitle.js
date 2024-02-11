@@ -5,6 +5,9 @@ export const useJobTitle = () => {
     const [id, setId] = useState('');
 	const [name, setName] = useState('');
 	const [slug, setSlug] = useState('');
+    const [course_link, setCourse_link] = useState('');
+    const [course_price, setCourse_price] = useState('');
+    const [first_payment_amount, setFirst_payment_amount] = useState('');
 	const [description, setDescription] = useState('');
 	const [icon_url, setIcon_url] = useState('');
 	
@@ -26,6 +29,9 @@ export const useJobTitle = () => {
 		slug,
 		description,
 		icon_url,
+        course_link,
+        course_price,
+        first_payment_amount
 		
         };
 
@@ -37,6 +43,9 @@ export const useJobTitle = () => {
 		slug,
 		description,
 		icon_url,
+        course_link,
+        course_price,
+        first_payment_amount
 		
         };
 
@@ -51,6 +60,9 @@ export const useJobTitle = () => {
 		setSlug(job_title.slug ?? '');
 		setDescription(job_title.description ?? '');
 		setIcon_url(job_title.icon_url ?? '');
+        setCourse_link(job_title.course_link ?? '');
+        setCourse_price(job_title.course_price ?? '');
+        setFirst_payment_amount(job_title.first_payment_amount ?? '')
 		
     }
     const emptyJobTitle = () => {
@@ -59,6 +71,9 @@ export const useJobTitle = () => {
 		setSlug('');
 		setDescription('');
 		setIcon_url('');
+        setCourse_link('');
+        setCourse_price('');
+        setFirst_payment_amount('')
 		
     }
 
@@ -68,6 +83,9 @@ export const useJobTitle = () => {
 		slug,
 		description,
 		icon_url,
+        course_link,
+        course_price,
+        first_payment_amount,
 		
         errors,
         isDisabled,

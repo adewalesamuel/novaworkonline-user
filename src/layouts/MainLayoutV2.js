@@ -1,14 +1,15 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Utils } from "../utils";
 import { useEffect } from "react";
 import { Components } from "../components";
 
 export function MainLayoutV2(props){
     const navigate = useNavigate();
+    const {pathname} = useLocation();
 
     useEffect(() => {
-        if (!navigate) return;
-        if (!Utils.Auth.isLoggedIn()) navigate('/connexion', {replace: true});
+        const from = pathname !== '/' ? "?from=" + pathname : '';
+        if (!Utils.Auth.isLoggedIn()) navigate(`/inscription${from}`, {replace: true});
     })
     if (!Utils.Auth.isLoggedIn()) return null;
 
