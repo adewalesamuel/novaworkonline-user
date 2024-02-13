@@ -4,7 +4,7 @@ import { Services } from "../services";
 export function ResumePersonelInfo(props) {
     let abortController = new AbortController(); 
 
-    const handleFileUpload = async file => {
+    const handleFileUpload = async (e, file) => {
         props.useResume.setIsDisabled(true);
         
         try {
@@ -24,7 +24,7 @@ export function ResumePersonelInfo(props) {
     return (
         <div className='row'>
             <div className='col-12'>
-                <div className='form-group'>
+                <div className='form-group w-50'>
                     <label htmlFor='profil_img_url'>Photo</label>
                     <Components.ImageFileInput handleFileChange={handleFileUpload} 
                         img_url={props.useResume.personal_infos?.photo_url ?? ''}/>
