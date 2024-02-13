@@ -1,4 +1,5 @@
 import { Utils } from '../utils';
+import { toast } from 'react-toast'
 
 const HOST = 'http://127.0.0.1';
 const PORT = '8000';
@@ -55,6 +56,8 @@ const post = (endpoint, payload='', signal=new AbortController().signal) => {
                     });
             }
 
+            toast.success("Enregistrement effectué avec succeès!");
+
             return response.json();
         })
         .then(result => {
@@ -106,6 +109,8 @@ const put = (endpoint, payload='', signal=new AbortController().signal) => {
                     });
             } 
 
+            toast.success("Enregistrement effectué avec succeès!");
+            
             return response.json();
         })
         .then(result => {

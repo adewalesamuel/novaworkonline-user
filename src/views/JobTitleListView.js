@@ -7,13 +7,14 @@ export function JobTitleListView(props) {
     let abortController = new AbortController(
 
     );
-    const { SubscriptionPackService } = Services;
+    const { SubscriptionPackService, UserService } = Services;
 
     const useSubscription = Hooks.useSubscription();
 
     const [job_title, setJob_title] = useState({});
     const [subscription_packs, setSubscription_packs] = useState([]);
     const [, setIsLoading] = useState(true);
+    const [user, setUser] = useState('');
 
     const handleSubscriptionPackClick = async (e, amount) => {
         e.preventDefault();
@@ -79,6 +80,9 @@ export function JobTitleListView(props) {
             const {job_title} = await Services.JobTitleService
             .getUserJobTitle(abortController.signal);
             setJob_title(job_title);
+
+            const {user} = await UserService.getProfile(abortController.signal);
+            setUser(user);
         } catch (error) {
             console.log(error);
         } finally {
@@ -105,30 +109,35 @@ export function JobTitleListView(props) {
             <div className="">
                 <div className="card card-pricing-one">
                     <div className="row">
-                        <div className="col-12 mb-5">
-                            {(!job_title.course_link || job_title.course_link === '') && 
+                        <div className="col-12 mb-5 text-center">
+                            {!user?.course_login && 
                                 <button className="btn btn-primary rounded-pill px-3" 
                                 onClick={e => handleSubscriptionPackClick(e, job_title.course_price)}>
                                     PAYER MA FORMATION
                                 </button>
                                 }
-                                {job_title.course_link && 
+                                {user?.course_login && 
                                      <a className="btn btn-primary rounded-pill px-3" 
-                                     href={job_title.course_link} target="_blank" rel='noreferrer'>
+                                     href={job_title.course_link_url} target="_blank" rel='noreferrer'>
                                          ACCEDER À MA FORMATION
                                      </a>
                                 }
                         </div>
 
-                        <div className="col-12 col-md-8">
-                            <h2 className="mb-3">Description</h2>
-                            <p className="text-lg" style={{
-                                whiteSpace: 'pre-wrap', 
-                                overflowWrap: 'break-word'
-                            }}> 
-                                {job_title.description ?? "Bientôt disponible"}
-                            </p>
-                        </div>
+                        {user?.course_login &&  
+                            <div className="col-12 col-md-8">
+                                <h2 className="mb-3">Accèss</h2>
+                                <div className="py-1">
+                                    <strong>Login :</strong>
+                                    <span>{user?.course_login}</span>
+                                </div>
+                                <div className="py-1">
+                                    <strong>Mot de passe :</strong>
+                                    <span>{user?.course_password}</span>
+                                </div>
+                            </div>
+                        }
+
                     </div>
                 </div>
             </div>
